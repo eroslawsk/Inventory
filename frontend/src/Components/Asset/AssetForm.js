@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import '../App.css';
 
 
 class AssetForm extends React.Component {
@@ -19,35 +20,58 @@ class AssetForm extends React.Component {
         .catch((error) => {
             console.log(error);
         });
+
+        this.setState({
+            Manufacturer: '',
+            Model: '',
+            PurchaseCost: '',
+            SerialNumber: ' '
+        })
     }
     render() { 
         return ( 
-            <div className="row">
-            <h1 className="center">Add a new Asset</h1>
-            <form className="col s12" onSubmit={this.submitAsset.bind(this)}>
-            <div className="row">
-                <div className="input-field col s6">
-                <input id="Manufacturer" ref="Manufacturer" type="text" />
-                <label htmlFor="Manufacturer">Manufacturer</label>
-                </div>
-                <div className="input-field col s6">
-                <input id="Model" ref="Model" type="text" />
-                <label htmlFor="Model">Model</label>
-                </div>
+            <div>
+                <h1><strong className="has-text-info">Add an Asset</strong></h1>
+            <form onSubmit={this.submitAsset.bind(this)}>
+            <div className="columns">
+            <div className="column">
+            <div className="field">
+            <label className="label">Manufacturer</label>
+            <div className="control">
+                <input className="input" id="Manufacturer" ref="Manufacturer" type="text" />
             </div>
-            <div className="row">
-                <div className="input-field col s6">
-                <input id="PurchaseCost" ref="PurchaseCost" type="text" />
-                <label htmlFor="PurchaseCost">Purchase Cost</label>
-                </div>
-                <div className="input-field col s6">
-                <input id="SerialNumber" ref="SerialNumber" type="text" />
-                <label htmlFor="SerialNumber">Serial Number</label>
-                </div>
             </div>
-            <button className="btn waves-effect waves-light" type="submit" name="action">Add Asset</button>
+            </div>
+            <div className="column">
+            <div className="field">
+            <label className="label">Model</label>
+            <div className="control">
+                <input className="input" id="Model" ref="Model" type="text" />
+            </div>
+            </div>
+            </div>
+            </div>
+            <div className="columns">
+            <div className="column">
+            <div className="field">
+            <label className="label">Purchase Cost</label>
+            <div className="control">
+                <input className="input" id="PurchaseCost" ref="PurchaseCost" type="text" />
+            </div>
+            </div>
+            </div>
+            <div className="column">
+            <div className="field">
+            <label className="label">Serial Number</label>
+            <div className="control">
+                <input className="input" id="SerialNumber" ref="SerialNumber" type="text" />
+            </div>
+            </div>
+            </div>
+            </div>
+            <button className="button is-link" type="submit" name="action">Add Asset</button>
             </form>
-        </div> 
+            </div>
         );
     }
 }

@@ -1,1 +1,13 @@
+h1 {
+    margin: 10px;
+    padding: 10px;
+}
 
+.columns, button {
+    margin: 20px;
+}
+
+table {
+    margin: 20px;
+    padding: 20px;
+}
